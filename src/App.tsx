@@ -1,5 +1,27 @@
-function App() {
-  return <h1 className="text-3xl font-bold underline">Hello world!</h1>;
-}
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Header from "./components/Header";
+import Home from "./pages/Home";
+import About from "./pages/About";
+
+const App: React.FC = () => {
+  return (
+    <Router>
+      <div className="flex flex-col min-h-screen">
+        <Header />
+
+        <main className="flex-grow container mx-auto px-4 py-8">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+          </Routes>
+        </main>
+
+        <footer className="py-4 text-center bg-gray-100 text-gray-600">
+          © 2025 MyTailwindApp. All rights reserved.
+        </footer>
+      </div>
+    </Router>
+  );
+};
 
 export default App;
